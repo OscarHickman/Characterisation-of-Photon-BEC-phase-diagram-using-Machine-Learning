@@ -54,7 +54,9 @@ def build_simple_classifier(input_dim: int, hidden_units: int = 64, lr: float = 
     without TensorFlow installed when only helper functions are used.
     """
     try:
-        from tensorflow.keras import layers, models, optimizers
+        # ty may not resolve the compiled tensorflow package; silence
+        # type checker for this import
+        from tensorflow.keras import layers, models, optimizers  # type: ignore[import]
     except Exception as exc:  # pragma: no cover - environment dependent
         raise RuntimeError("TensorFlow is required to build/train models") from exc
 

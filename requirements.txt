@@ -9,3 +9,8 @@ tensorflow>=2.6
 # Keras is included in tensorflow >= 2.0, but if you use standalone Keras:
 # keras>=2.4
 
+# Development / tooling (moved from requirements-dev.txt)
+pre-commit>=2.20
+ruff>=0.0.279
+pytest>=7.0
+

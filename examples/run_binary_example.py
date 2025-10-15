@@ -8,19 +8,25 @@ without TensorFlow installed. If you want to run training, call
 `build_simple_classifier` and `train_classifier` after installing TensorFlow.
 """
 
-import sys
-from pathlib import Path
+try:
+    from photon_bec.binary import (
+        bits_to_int,
+        prepare_binary_targets,
+        threshold_modes,
+        to_numpy_array,
+    )
+except Exception:
+    # Fallback when running the script directly: add `src` to sys.path and retry
+    import sys
+    from pathlib import Path
 
-# Add the repository `src` directory to sys.path so the module imports work
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "src"))
-
-from photon_bec.binary import (
-    bits_to_int,
-    prepare_binary_targets,
-    threshold_modes,
-    to_numpy_array,
-)
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+    from photon_bec.binary import (
+        bits_to_int,
+        prepare_binary_targets,
+        threshold_modes,
+        to_numpy_array,
+    )
 
 # Synthetic features: 6 samples, 4 features each
 X = [[0.1 * i + j * 0.01 for j in range(4)] for i in range(6)]

@@ -4,8 +4,9 @@ version = "0.1.0"
 description = "Photon BEC phase diagram characterisation using ML (bsc project)"
 authors = ["Oscar Hickman <oscar.hickman17@alumni.imperial.ac.uk>"]
 
-[tool.black]
+[tool.ruff]
 line-length = 88
 
-[tool.isort]
-profile = "black"
+[tool.ruff.lint]
+select = ["E", "W", "F", "C", "I", "B"]
+
