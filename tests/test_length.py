@@ -1,3 +1,5 @@
+import importlib.util
+
 import numpy as np
 from photon_bec import length
 
@@ -12,7 +14,6 @@ def test_griddata_interpolate_simple():
     y = [0, 0, 1, 1]
     z = [0, 1, 1, 0]
     # griddata_interpolate depends on scipy; if scipy is not installed, skip this check
-    import importlib.util
 
     if importlib.util.find_spec("scipy") is None:
         # SciPy missing in environment; test not executed
