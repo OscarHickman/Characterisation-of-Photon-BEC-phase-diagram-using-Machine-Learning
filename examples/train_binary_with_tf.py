@@ -5,16 +5,16 @@ builds a small classifier via `photon_bec.binary.build_simple_classifier`,
 trains for a few epochs, and prints the final evaluation.
 """
 
+import sys
+from pathlib import Path
+
+import numpy as np
+
 try:
-    import numpy as np
     from photon_bec.binary import build_simple_classifier, train_classifier
 except Exception:
-    import sys
-    from pathlib import Path
-
     sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
-    import numpy as np
     from photon_bec.binary import build_simple_classifier, train_classifier
 
 
