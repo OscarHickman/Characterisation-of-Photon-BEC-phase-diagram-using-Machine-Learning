@@ -1,5 +1,4 @@
 import numpy as np
-
 from photon_bec import length
 
 

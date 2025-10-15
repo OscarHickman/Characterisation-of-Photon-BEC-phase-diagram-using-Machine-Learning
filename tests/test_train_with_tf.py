@@ -18,7 +18,6 @@ def pytest_configure(config):
 @pytest.mark.skipif(not TF, reason="TensorFlow not installed")
 def test_small_training_loop():
     import numpy as np
-
     from photon_bec.binary import build_simple_classifier, train_classifier
 
     # tiny synthetic dataset
