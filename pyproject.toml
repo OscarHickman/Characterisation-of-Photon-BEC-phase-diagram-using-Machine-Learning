@@ -1,0 +1,11 @@
+[tool.poetry]
+name = "photon-bec-ml"
+version = "0.1.0"
+description = "Photon BEC phase diagram characterisation using ML (bsc project)"
+authors = ["Oscar Hickman <oscar.hickman17@alumni.imperial.ac.uk>"]
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = "black"
