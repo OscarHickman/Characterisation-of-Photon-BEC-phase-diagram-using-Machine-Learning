@@ -1,6 +1,8 @@
+# ruff: noqa: I001
 import importlib.util
 
 import numpy as np
+
 from photon_bec import length
 
 
