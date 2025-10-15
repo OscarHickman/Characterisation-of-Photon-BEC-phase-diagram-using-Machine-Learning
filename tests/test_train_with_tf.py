@@ -1,23 +1,21 @@
 import importlib.util
 import sys
 
+import numpy as np
 import pytest
 
+# Ensure src/ is importable when running tests directly
 sys.path.insert(0, "src")
 
 TF = importlib.util.find_spec("tensorflow") is not None
 
 
-def pytest_configure(config):
-    if not TF:
-        config.pluginmanager.get_plugin("terminalreporter").section(
-            "skipped", "TensorFlow not installed: skipping TF tests"
-        )
-
-
 @pytest.mark.skipif(not TF, reason="TensorFlow not installed")
 def test_small_training_loop():
-    import numpy as np
+    """Small integration test that trains a tiny model for a couple of epochs.
+
+    This test is skipped when TensorFlow is not installed in the environment.
+    """
     from photon_bec.binary import build_simple_classifier, train_classifier
 
     # tiny synthetic dataset
